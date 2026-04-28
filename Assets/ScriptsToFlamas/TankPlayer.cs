@@ -4,26 +4,41 @@ using UnityEngine;
 
 public class TankPlayer : MonoBehaviour
 {
-    TankMovement toFlama;
+    TankMovement myTankMovement;
     void Start()
     {
-        toFlama = GetComponent<TankMovement>();
+        myTankMovement = GetComponent<TankMovement>();
     }
     void Update()
     {
        if (Input.GetKey(KeyCode.W))
        {
-          toFlama.Avanzar(+1);
+          myTankMovement.Avanzar(+1);
        }    
-
        else if (Input.GetKey(KeyCode.S))
        {
-          toFlama.Avanzar(-1);
+          myTankMovement.Avanzar(-1);
        }
-
        else
        {
-          toFlama.Avanzar(0);
+          myTankMovement.Avanzar(0);
        }
+
+       if (Input.GetKey(KeyCode.D))
+       {
+            myTankMovement.Rotar(+1);
+       } 
+       else if (Input.GetKey(KeyCode.A))
+       {
+            myTankMovement.Rotar(-1);
+       } 
+       else
+       {
+            myTankMovement.Rotar(0);
+       }
+
+
+
+
     }
 }

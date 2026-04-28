@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class TankMovement : MonoBehaviour
 {
+    public float velocidadDeRotacion = 2f;
+
+    public float velocidadDeMovimiento = 4f;
 
     float velocidad = 0;
+
+    float rotacion = 0;
     void Start()
     {
         
@@ -13,13 +18,14 @@ public class TankMovement : MonoBehaviour
     void Update()
     {
         transform.position += transform.right * velocidad * Time.deltaTime;
+        transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + rotacion * Time.deltaTime);
     }
-    public virtual void Avanzar(float w)
+    public virtual void Avanzar(float ws)
     {
-        velocidad = w;
+        velocidad = ws * velocidadDeMovimiento;
     }
-    public virtual void Rotar(float asd)
+    public virtual void Rotar(float ad)
     {
-        transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + asd);
+       rotacion = ad * velocidadDeRotacion;
     }
 }
