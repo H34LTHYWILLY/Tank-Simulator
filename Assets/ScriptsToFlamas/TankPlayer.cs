@@ -5,9 +5,21 @@ using UnityEngine;
 public class TankPlayer : MonoBehaviour
 {
     TankMovement myTankMovement;
+
+    public int Vida
+    {
+        private set { }
+        get
+        {
+            return 0;
+        }
+    }
+
     void Start()
     {
         myTankMovement = GetComponent<TankMovement>();
+        Vida = 0;
+        Debug.Log(Vida);
     }
     void Update()
     {

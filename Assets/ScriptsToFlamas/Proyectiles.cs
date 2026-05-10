@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Proyectiles : MonoBehaviour
 {
-    
+    [SerializeField] int daño = 1;
     [SerializeField] float velocidad = 15;
     void Start()
     {
-        
+
     }
 
     void Update()
@@ -18,6 +19,12 @@ public class Proyectiles : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(this);
+        IVida objetoConVida = collision.gameObject.GetComponent<IVida>();
+        if (objetoConVida != null)
+        {
+            objetoConVida.QuitarVida(daño);
+        }
+
+        Destroy(gameObject);
     }
 }
