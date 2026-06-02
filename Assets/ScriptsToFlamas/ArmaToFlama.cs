@@ -2,16 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MetralletaToFlama : MonoBehaviour
+public class ArmaToFlama : MonoBehaviour
 {
     [SerializeField] GameObject proyectil;
     [SerializeField] GameObject mirilla;
+    [SerializeField] float frecuenciaDeDisparo = 30;
+    float tiempoDeEspera;
 
-    void Update()
+    public void Disparar()
     {
-        if (Input.GetKey(KeyCode.Space))
+        tiempoDeEspera -= Time.deltaTime;
+
+        if (tiempoDeEspera <= 0)
         {
             Instantiate(proyectil, mirilla.transform.position, transform.rotation);
+
+            tiempoDeEspera = 1 / frecuenciaDeDisparo;
+
         }
     }
 }

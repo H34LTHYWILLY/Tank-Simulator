@@ -6,6 +6,8 @@ public class TankPlayer : MonoBehaviour
 {
     TankMovement myTankMovement;
 
+    ArmasTankeToFlamas myReference;
+
     public int Vida
     {
         private set { }
@@ -20,6 +22,8 @@ public class TankPlayer : MonoBehaviour
         myTankMovement = GetComponent<TankMovement>();
         Vida = 0;
         Debug.Log(Vida);
+
+        myReference = GetComponent<ArmasTankeToFlamas>();
     }
     void Update()
     {
@@ -49,6 +53,11 @@ public class TankPlayer : MonoBehaviour
             myTankMovement.Rotar(0);
        }
 
+
+       if (Input.GetKey(KeyCode.Space))
+       {
+            myReference.Disparar();
+       }
 
 
 
