@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4461761192274189602}
   - component: {fileID: 173653075488736818}
   - component: {fileID: 4500956186711468120}
-  - component: {fileID: 5440103342756682882}
   m_Layer: 6
   m_Name: Bullet
   m_TagString: Untagged
@@ -146,30 +145,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   "da\xF1o": 1
   velocidad: 15
---- !u!50 &5440103342756682882
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5496671442854425215}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  tiempoDeVida: 10

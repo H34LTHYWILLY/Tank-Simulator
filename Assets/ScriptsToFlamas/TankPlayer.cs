@@ -6,7 +6,7 @@ public class TankPlayer : MonoBehaviour
 {
     TankMovement myTankMovement;
 
-    ArmasTankeToFlamas myReference;
+    DisparadorDeArmas myReference;
 
     public int Vida
     {
@@ -23,7 +23,7 @@ public class TankPlayer : MonoBehaviour
         Vida = 0;
         Debug.Log(Vida);
 
-        myReference = GetComponent<ArmasTankeToFlamas>();
+        myReference = GetComponent<DisparadorDeArmas>();
     }
     void Update()
     {
