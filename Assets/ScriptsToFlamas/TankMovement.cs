@@ -18,7 +18,7 @@ public class TankMovement : MonoBehaviour
     void Update()
     {
         transform.position += transform.right * velocidad * Time.deltaTime;
-        transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + rotacion * Time.deltaTime);
+        transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + -rotacion * Time.deltaTime);
     }
     public virtual void Avanzar(float ws)
     {
