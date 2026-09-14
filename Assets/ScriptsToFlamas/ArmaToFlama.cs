@@ -28,21 +28,28 @@ public class ArmaToFlama : MonoBehaviour
         if (collision.gameObject.GetComponent<TankLife>() == null)
             return;
 
+        DisparadorDeArmas componente = collision.gameObject.GetComponent<DisparadorDeArmas>();
         // Comprobar si ese tanque puede recoger el arma.
+        GameObject slotDeArma = componente.ConseguirSlotDeArmaVacio();
+        if (slotDeArma == null)
+            return;
 
-        // AcoplarATanque.
+        AcoplarASlotDeArma(slotDeArma, componente);
     }
 
     // Se llama cuando colisionamos con un arma que este en el suelo.
-    public void AcoplarATanque(GameObject tanque)
+    public void AcoplarASlotDeArma(GameObject slotDeArma, DisparadorDeArmas componente)
     {
-        GameObject arma = gameObject;
-        arma.transform.SetParent(tanque.transform);
-
-
-
         // Pegar el arma al tanque.
+        GameObject arma = gameObject;
+        arma.transform.SetParent(slotDeArma.transform);
+
+        arma.transform.position = slotDeArma.transform.position;
+        arma.transform.rotation = slotDeArma.transform.rotation;
+
         // Conectar el arma a los sistemas de disparo.
+        componente.alotFlamingWeapons.Add(this);
+
         // Incrementar la vida de nuestro tanque.
         // Y activar las colisiones del arma y su vida.
     }

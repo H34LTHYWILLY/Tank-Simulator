@@ -8,10 +8,6 @@ public class Proyectiles : MonoBehaviour
     [SerializeField] int daño = 1;
     [SerializeField] float velocidad = 15;
     [SerializeField] float tiempoDeVida = 10;
-    void Start()
-    {
-
-    }
 
     void Update()
     {
