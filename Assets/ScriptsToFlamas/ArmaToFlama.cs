@@ -25,10 +25,13 @@ public class ArmaToFlama : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Comprobar si estamos colisionando con un tanque.
-        if (collision.gameObject.GetComponent<TankLife>() == null)
+        if (collision.gameObject.GetComponentInParent<TankLife>() == null)
+            return;
+        
+        if (transform.parent != null)
             return;
 
-        DisparadorDeArmas componente = collision.gameObject.GetComponent<DisparadorDeArmas>();
+        DisparadorDeArmas componente = collision.gameObject.GetComponentInParent<DisparadorDeArmas>();
         // Comprobar si ese tanque puede recoger el arma.
         GameObject slotDeArma = componente.ConseguirSlotDeArmaVacio();
         if (slotDeArma == null)
